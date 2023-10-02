@@ -1,0 +1,19 @@
+name: JSON Schema Validation
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download the JSON schema
+        run: wget https://raw.githubusercontent.com/ossf/osv-schema/main/validation/schema.json
+
+      - name: Validate JSON
+        run: |
+          pip install check-jsonschema
+          check-jsonschema --schemafile schema.json upstream/*.json
