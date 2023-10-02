@@ -17,4 +17,4 @@ jobs:
         run: pip install check-jsonschema
 
       - name: Validate JSON
-        run: check-jsonschema --schemafile schema.json upstream/*.json
+        run: check-jsonschema --schemafile schema.json $(git diff --name-only HEAD main | grep .json)
