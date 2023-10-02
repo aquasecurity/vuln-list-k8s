@@ -13,7 +13,8 @@ jobs:
       - name: Download the JSON schema
         run: wget https://raw.githubusercontent.com/ossf/osv-schema/v1.6.0/validation/schema.json
 
+      - name: Install check-jsonschema
+        run: pip install check-jsonschema
+
       - name: Validate JSON
-        run: |
-          pip install check-jsonschema
-          check-jsonschema --schemafile schema.json upstream/*.json
+        run: check-jsonschema --schemafile schema.json upstream/*.json
