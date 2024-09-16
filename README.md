@@ -1,3 +1,5 @@
+# ARCHIVED: Moved to https://github.com/kubernetes-sigs/cve-feed-osv
+
 # vuln-list-k8s
 k8s vulnerability advisory as published by official k8s security team: 
 
